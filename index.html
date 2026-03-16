@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云树 Yuna - 摄影师 | 编导 | 自媒体人</title>
+    
+    <!-- SEO Meta标签 -->
+    <meta name="description" content="云树 Yuna，摄影师、编导、自媒体人。学过哲学、编导，做过旅游行业奢华酒店摄影师、拍过纪录片，也进行AI创作，探索技术与人文的交叉点。">
+    <meta name="keywords" content="云树 Yuna, 摄影师, 编导, 自媒体人, 纪录片, AI创作, 人文技术交叉">
+    <meta name="author" content="云树 Yuna">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph 标签 -->
+    <meta property="og:title" content="云树 Yuna - 个人主页">
+    <meta property="og:description" content="云树 Yuna，摄影师、编导、自媒体人。学过哲学、编导，做过旅游行业奢华酒店摄影师、拍过纪录片，也进行AI创作，探索技术与人文的交叉点。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yunshu.com">
+    <meta property="og:image" content="/Users/yunshu/Desktop/vibecoding/头像.jpg">
+    
+    <!-- Twitter 卡片 -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="云树 Yuna - 个人主页">
+    <meta name="twitter:description" content="云树 Yuna，摄影师、编导、自媒体人。学过哲学、编导，做过旅游行业奢华酒店摄影师、拍过纪录片，也进行AI创作，探索技术与人文的交叉点。">
+    <meta name="twitter:image" content="/Users/yunshu/Desktop/vibecoding/头像.jpg">
+    
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "云树 Yuna",
+        "givenName": "云树",
+        "familyName": "麻",
+        "description": "摄影师、编导、自媒体人。学过哲学、编导，做过旅游行业奢华酒店摄影师、拍过纪录片，也进行AI创作，探索技术与人文的交叉点。",
+        "url": "https://www.yunshu.com",
+        "image": "/Users/yunshu/Desktop/vibecoding/头像.jpg",
+        "jobTitle": "摄影师、编导、自媒体人",
+        "knowsAbout": ["摄影", "编导", "纪录片", "AI创作", "哲学", "自媒体", "Vibecoding", "人文技术交叉"],
+        "sameAs": []
+    }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #000000;
+            --secondary-bg: #111111;
+            --accent-color: #00ffff;
+            --text-color: #ffffff;
+            --text-secondary: #cccccc;
+            --glow: 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* 背景粒子效果 */
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.3;
+        }
+
+        /* 主容器 */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 导航栏 */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-decoration: none;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            text-shadow: var(--glow);
+            transform: translateY(-2px);
+        }
+
+        /* 汉堡菜单按钮 */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--accent-color);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* 导航链接 */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-color);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+            box-shadow: var(--glow);
+        }
+
+        /* 英雄区域 */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        /* 头像样式 */
+        .hero-avatar {
+            display: block;
+            margin: 0 auto 1rem;
+            border: 3px solid rgba(0, 255, 255, 0.3);
+            box-shadow: var(--glow);
+            transition: all 0.3s ease;
+            max-width: 300px;
+            max-height: 300px;
+        }
+
+        .hero-avatar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.7);
+        }
+
+        .hero-avatar img {
+            display: block;
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin: 0;
+            background: linear-gradient(45deg, var(--text-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-bottom: 3rem;
+            font-weight: 500;
+        }
+
+        /* 按钮样式 */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover {
+            background: var(--accent-color);
+            color: var(--primary-bg);
+            box-shadow: var(--glow);
+            transform: translateY(-2px);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* 部分通用样式 */
+        section {
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--accent-color);
+            box-shadow: var(--glow);
+        }
+
+        /* 关于我 */
+        .about {
+            background: var(--secondary-bg);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            box-shadow: var(--glow);
+            transform: translateY(-5px);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* 技能/提供 */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--secondary-bg);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent-color);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-card:hover {
+            box-shadow: var(--glow);
+            transform: translateY(-5px);
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .skill-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* 作品 */
+        .works {
+            background: var(--secondary-bg);
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .work-item {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .work-item:hover {
+            box-shadow: var(--glow);
+            transform: translateY(-5px);
+        }
+
+        .work-content {
+            padding: 2rem;
+        }
+
+        .work-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .work-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* 价值观 */
+        .values {
+            text-align: center;
+        }
+
+        .value-statement {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(0, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            border-radius: 15px;
+            line-height: 1.8;
+        }
+
+        .value-statement strong {
+            color: var(--accent-color);
+        }
+
+        /* 联系我 */
+        .contact {
+            background: var(--secondary-bg);
+            text-align: center;
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 255, 255, 0.05);
+            border: 2px solid rgba(0, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--accent-color);
+            color: var(--primary-bg);
+            box-shadow: var(--glow);
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        /* 页脚 */
+        footer {
+            background: var(--primary-bg);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(0, 255, 255, 0.1);
+        }
+
+        footer p {
+            color: var(--text-secondary);
+        }
+
+        /* 动画 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* 滚动动画 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            /* 显示汉堡菜单 */
+            .menu-toggle {
+                display: flex;
+            }
+
+            /* 移动端导航链接 */
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(10px);
+                width: 250px;
+                height: 100vh;
+                padding: 80px 20px 20px;
+                transition: right 0.3s ease;
+                z-index: 1000;
+                border-left: 1px solid rgba(0, 255, 255, 0.2);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1rem 0;
+                font-size: 1.1rem;
+            }
+
+            /* 英雄区域调整 */
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            /* 其他部分调整 */
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-links {
+                flex-wrap: wrap;
+            }
+
+            /* 博客样式调整 */
+            .blog-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .blog-date {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* 滚动进度条 */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), #764ba2);
+            box-shadow: var(--glow);
+            z-index: 1001;
+            transition: width 0.1s ease;
+        }
+
+        /* 加载动画 */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading::after {
+            content: '';
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(0, 255, 255, 0.3);
+            border-top: 3px solid var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* 博客样式 */
+        .blog {
+            background: var(--secondary-bg);
+        }
+
+        .blog-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .blog-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .blog-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .blog-item:hover {
+            box-shadow: var(--glow);
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .blog-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+
+        .blog-header h3 {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin: 0;
+        }
+
+        .blog-date {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .blog-excerpt {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .blog-category {
+            background: rgba(0, 255, 255, 0.1);
+            color: var(--accent-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+        }
+
+        .blog-read-more {
+            color: var(--accent-color);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .blog-item:hover .blog-read-more {
+            transform: translateX(5px);
+        }
+
+        /* 博客详情样式 */
+        .blog-detail {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 255, 0.1);
+        }
+
+        .blog-back-btn {
+            background: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .blog-back-btn:hover {
+            background: var(--accent-color);
+            color: var(--primary-bg);
+            box-shadow: var(--glow);
+        }
+
+        .blog-detail-header h2 {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-detail-meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .blog-detail-meta span {
+            margin-right: 1rem;
+        }
+
+        .blog-detail-content {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .blog-detail-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-detail-content h3 {
+            color: var(--accent-color);
+            margin: 2rem 0 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* 简历样式 */
+        .resume {
+            background: var(--secondary-bg);
+        }
+
+        .resume-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .resume-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .resume-section:hover {
+            box-shadow: var(--glow);
+            border-color: var(--accent-color);
+        }
+
+        .resume-section h3 {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(0, 255, 255, 0.2);
+        }
+
+        /* 个人信息 */
+        .resume-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+
+        .info-value {
+            color: var(--text-secondary);
+        }
+
+        /* 时间线样式 */
+        .resume-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            box-shadow: var(--glow);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% + 1rem);
+            background: rgba(0, 255, 255, 0.2);
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+            gap: 1rem;
+        }
+
+        .timeline-title {
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .timeline-degree {
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .timeline-description ul {
+            list-style-position: inside;
+            padding-left: 1rem;
+        }
+
+        .timeline-description li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* 技能样式 */
+        .resume-skills {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .skills-category h4 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background: rgba(0, 255, 255, 0.1);
+            color: var(--accent-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent-color);
+            color: var(--primary-bg);
+            box-shadow: var(--glow);
+            transform: translateY(-2px);
+        }
+
+        .skill-level {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .resume-section {
+                padding: 1.5rem;
+            }
+
+            .resume-info {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .timeline-date {
+                white-space: normal;
+            }
+        }
+
+        /* 微信二维码模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background: var(--secondary-bg);
+            margin: 5% auto;
+            padding: 2rem;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: var(--glow);
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close {
+            color: var(--text-secondary);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            line-height: 1;
+        }
+
+        .close:hover {
+            color: var(--accent-color);
+            transform: rotate(90deg);
+        }
+
+        .modal-content h3 {
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .qr-container {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .qr-container img {
+            width: 100%;
+            max-width: 200px;
+            border-radius: 5px;
+            border: 2px solid rgba(0, 255, 255, 0.3);
+        }
+
+        .modal-content p {
+            color: var(--text-secondary);
+            margin-top: 1rem;
+            font-size: 1rem;
+        }
+
+        /* 滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--primary-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00cccc;
+            box-shadow: var(--glow);
+        }
+    </style>
+</head>
+<body>
+    <!-- 加载动画 -->
+    <div class="loading" id="loading"></div>
+
+    <!-- 背景粒子效果 -->
+    <div id="particles-js"></div>
+
+    <!-- 滚动进度条 -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- 导航栏 -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">麻云树</a>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#about">关于我</a></li>
+                <li><a href="#skills">价值</a></li>
+                <li><a href="#works">作品</a></li>
+                <li><a href="#blog">博客</a></li>
+                <li><a href="#resume">简历</a></li>
+                <li><a href="#contact">联系</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <!-- 头像区域 -->
+                <div id="userAvatar" style="width: 200px; height: 200px; border-radius: 50%; border: 3px solid rgba(0, 255, 255, 0.3); box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); margin-bottom: 1rem; margin: 0 auto 1rem; background: url('头像.jpg') no-repeat center center; background-size: cover;" alt="云树 Yuna"></div>
+                
+                <h1>云树 Yuna</h1>
+                <p class="subtitle">摄影师 | 编导 | 自媒体人 | AI创作者</p>
+                <p class="tagline">从哲学到技术，探索人文与科技的交叉点</p>
+                <a href="#about" class="btn">了解更多</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title fade-in">关于我</h2>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h3>你好，我是云树 Yuna</h3>
+                    <p>我是一名在技术与人文交界处持续产出的人文数字代码博主。从哲学背景到编导硕士，再到独立开发者，我致力于将深邃的人文思考转化为成熟的数字产品。</p>
+                    <p>我已构建起基于 Vibecoding 的成熟 AI 交互系统，并拥有多项已落地的 AI 创作成果，作品获得了小红书官方的全方位认可，包括科技薯首页推荐、人文薯关注以及生活薯合作邀约。</p>
+                    <p>我依然保持对影像、旅行和生活方式内容的热爱，持续从人文视角书写与创作，在不断更新的技术洪流中，思考人与世界在数字时代的全新连接方式。</p>
+                    <p>很高兴认识你！</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item fade-in">
+                        <div class="stat-value">奢华酒店</div>
+                        <div class="stat-label">旅游摄影师</div>
+                    </div>
+                    <div class="stat-item fade-in">
+                        <div class="stat-value">纪录片</div>
+                        <div class="stat-label">编导创作</div>
+                    </div>
+                    <div class="stat-item fade-in">
+                        <div class="stat-value">AI产品</div>
+                        <div class="stat-label">技术探索</div>
+                    </div>
+                    <div class="stat-item fade-in">
+                        <div class="stat-value">生活方式</div>
+                        <div class="stat-label">自媒体运营</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 我能提供的价值 -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title fade-in">我能提供</h2>
+            <div class="skills">
+                <div class="skill-card fade-in">
+                    <h3>哲学思维模式</h3>
+                    <p>用深度哲学思考为问题提供独特视角，帮助你突破思维局限，找到本质解决方案。</p>
+                </div>
+                <div class="skill-card fade-in">
+                    <h3>AI 创作与定制</h3>
+                    <p>基于自建的哲学数字交互系统与 Vibecoding 工作流，提供 AI 概念设计、数字艺术定制、互动叙事原型搭建等深度创作服务。</p>
+                </div>
+                <div class="skill-card fade-in">
+                    <h3>影视创作</h3>
+                    <p>从纪录片到短视频，用影像讲述故事，传递思想与情感。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 我的价值观 -->
+    <section class="values">
+        <div class="container">
+            <h2 class="section-title fade-in">我的价值观</h2>
+            <div class="value-statement fade-in">
+                <strong>人文给世界温度，技术提升生活体验感</strong><br>
+                <br>
+                我相信科技的发展不应该冰冷，而应该带着人文的温度。在AI时代，我们需要用人类的情感与智慧，引导技术更好地服务于人类，让生活变得更加美好、更加有意义。
+            </div>
+        </div>
+    </section>
+
+    <!-- 我的作品 -->
+    <section class="works" id="works">
+        <div class="container">
+            <h2 class="section-title fade-in">我的作品</h2>
+            <div class="work-grid">
+                <div class="work-item fade-in">
+                    <div class="work-content">
+                        <h3>纪录片作品</h3>
+                        <p>记录生活中的美好瞬间，用影像传递情感与思想，探索人文与自然的连接。</p>
+                    </div>
+                </div>
+                <div class="work-item fade-in">
+                    <div class="work-content">
+                        <h3>自媒体账号</h3>
+                        <p>分享生活感悟、AI探索与哲学思考，建立有温度、有深度的内容社区。</p>
+                    </div>
+                </div>
+                <div class="work-item fade-in">
+                    <div class="work-content">
+                        <h3>AI-IDE个人产品</h3>
+                        <p>正在使用AI-IDE开发的创新个人产品，探索AI技术在创作领域的应用。</p>
+                    </div>
+                </div>
+                <div class="work-item fade-in">
+                    <div class="work-content">
+                        <h3>AI视频创作</h3>
+                        <p>利用AI技术进行视频创作，融合人文与科技，打造有温度的影像作品。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 博客 -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <h2 class="section-title fade-in">我的博客</h2>
+            <div class="blog-content">
+                <!-- 博客列表 -->
+                <div class="blog-list" id="blogList">
+                    <div class="blog-item fade-in" data-id="1">
+                        <div class="blog-header">
+                            <h3>AI时代的人文温度</h3>
+                            <span class="blog-date">2026-03-01</span>
+                        </div>
+                        <div class="blog-excerpt">
+                            在AI快速发展的今天，我们如何保持人文关怀，让技术真正服务于人类的美好...
+                        </div>
+                        <div class="blog-meta">
+                            <span class="blog-category">AI思考</span>
+                            <span class="blog-read-more">阅读更多 →</span>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-item fade-in" data-id="2">
+                        <div class="blog-header">
+                            <h3>从海南到杭州：我的AI探索之旅</h3>
+                            <span class="blog-date">2023-10-01</span>
+                        </div>
+                        <div class="blog-excerpt">
+                            从追逐海浪的自由灵魂，到专注于AI产品创新，这段旅程让我对技术与生活有了新的理解...
+                        </div>
+                        <div class="blog-meta">
+                            <span class="blog-category">个人成长</span>
+                            <span class="blog-read-more">阅读更多 →</span>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-item fade-in" data-id="3">
+                        <div class="blog-header">
+                            <h3>哲学思维在AI产品设计中的应用</h3>
+                            <span class="blog-date">2025-06-30</span>
+                        </div>
+                        <div class="blog-excerpt">
+                            深度哲学思考如何帮助我们突破思维局限，设计出更有温度、更有价值的AI产品...
+                        </div>
+                        <div class="blog-meta">
+                            <span class="blog-category">产品设计</span>
+                            <span class="blog-read-more">阅读更多 →</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 博客详情 -->
+                <div class="blog-detail" id="blogDetail" style="display: none;">
+                    <div class="blog-detail-header">
+                        <button class="blog-back-btn" id="blogBackBtn">← 返回列表</button>
+                        <h2 id="blogDetailTitle">博客标题</h2>
+                        <div class="blog-detail-meta">
+                            <span id="blogDetailDate">2024-01-01</span>
+                            <span id="blogDetailCategory">分类</span>
+                        </div>
+                    </div>
+                    <div class="blog-detail-content" id="blogDetailContent">
+                        <!-- 博客内容将通过JavaScript动态加载 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 简历 -->
+    <section class="resume" id="resume">
+        <div class="container">
+            <h2 class="section-title fade-in">我的简历</h2>
+            
+            <div class="resume-content fade-in">
+                <!-- 个人信息 -->
+                <div class="resume-section">
+                    <h3>个人信息</h3>
+                    <div class="resume-info">
+                        <div class="info-item">
+                            <span class="info-label">姓名：</span>
+                            <span class="info-value">麻静文</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">性别：</span>
+                            <span class="info-value">女</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">年龄：</span>
+                            <span class="info-value">29岁</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">工作经验：</span>
+                            <span class="info-value">5年</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">联系方式：</span>
+                            <span class="info-value">17816713664 | mjwyunshu@Gmail.com</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">最高学历：</span>
+                            <span class="info-value">研究生</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">专业：</span>
+                            <span class="info-value">广播电视编导</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">所在地：</span>
+                            <span class="info-value">杭州</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 教育背景 -->
+                <div class="resume-section">
+                    <h3>教育背景</h3>
+                    <div class="resume-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-header">
+                                <div class="timeline-title">西北政法大学</div>
+                                <div class="timeline-date">2015.09 - 2019.07</div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-degree">本科 | 哲学</div>
+                                <div class="timeline-description">
+                                    <ul>
+                                        <li>相关课程：中国哲学、西方哲学、宗教学、美学、伦理学</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-header">
+                                <div class="timeline-title">四川师范大学</div>
+                                <div class="timeline-date">2020.09 - 2023.06</div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-degree">研究生 | 广播电视编导</div>
+                                <div class="timeline-description">
+                                    <ul>
+                                        <li>相关课程：广播电视节目策划与创作、广播电视艺术研究方法论、传媒文化研究、纪录片创作、电视剧研究、CG动画与特效实践与研究、影视特效与包装、融媒体节目创作与实践</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 工作经历 -->
+                <div class="resume-section">
+                    <h3>工作经历</h3>
+                    <div class="resume-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-header">
+                                <div class="timeline-title">旅游行业</div>
+                                <div class="timeline-date">相关时期</div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-degree">奢华酒店摄影师</div>
+                                <div class="timeline-description">
+                                    <ul>
+                                        <li>为奢华酒店拍摄旅游空间照片</li>
+                                        <li>记录酒店环境与服务细节</li>
+                                        <li>创作高质量旅游摄影作品</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-header">
+                                <div class="timeline-title">影视行业</div>
+                                <div class="timeline-date">相关时期</div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-degree">纪录片编导</div>
+                                <div class="timeline-description">
+                                    <ul>
+                                        <li>拍摄纪录片作品</li>
+                                        <li>负责编导工作</li>
+                                        <li>创作平实日常但动人的影像作品</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-header">
+                                <div class="timeline-title">自媒体</div>
+                                <div class="timeline-date">相关时期</div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-degree">生活方式自媒体运营</div>
+                                <div class="timeline-description">
+                                    <ul>
+                                        <li>运营生活方式自媒体</li>
+                                        <li>创作旅行内容</li>
+                                        <li>从人文角度撰写内容</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 技能与证书 -->
+                <div class="resume-section">
+                    <h3>技能与证书</h3>
+                    <div class="resume-skills">
+                        <div class="skills-category">
+                            <h4>专业技能</h4>
+                            <div class="skills-list">
+                                <span class="skill-tag">旅游摄影</span>
+                                <span class="skill-tag">纪录片编导</span>
+                                <span class="skill-tag">AI视频创作</span>
+                                <span class="skill-tag">AI IDE工作台开发</span>
+                                <span class="skill-tag">自媒体运营</span>
+                                <span class="skill-tag">Vibecoding</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skills-category">
+                            <h4>技术能力</h4>
+                            <div class="skills-list">
+                                <span class="skill-tag">摄影技术</span>
+                                <span class="skill-tag">影视编导</span>
+                                <span class="skill-tag">AI视频技术</span>
+                                <span class="skill-tag">AI IDE应用</span>
+                                <span class="skill-tag">内容创作</span>
+                                <span class="skill-tag">旅行规划</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skills-category">
+                            <h4>语言能力</h4>
+                            <div class="skills-list">
+                                <span class="skill-tag">英语</span>
+                                <span class="skill-level">CET-6</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 项目经验 -->
+                <div class="resume-section">
+                    <h3>项目经验</h3>
+                    <div class="resume-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-header">
+                                <div class="timeline-title">奢华酒店摄影项目</div>
+                                <div class="timeline-date">相关时期</div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-degree">摄影师</div>
+                                <div class="timeline-description">
+                                    <ul>
+                                        <li>为多家奢华酒店拍摄旅游空间照片</li>
+                                        <li>创作高质量的旅游摄影作品</li>
+                                        <li>记录酒店环境与服务细节</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-header">
+                                <div class="timeline-title">纪录片创作</div>
+                                <div class="timeline-date">相关时期</div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-degree">编导</div>
+                                <div class="timeline-description">
+                                    <ul>
+                                        <li>拍摄平实日常但动人的纪录片</li>
+                                        <li>负责纪录片的编导工作</li>
+                                        <li>创作有温度的影像作品</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-header">
+                                <div class="timeline-title">生活方式自媒体</div>
+                                <div class="timeline-date">相关时期</div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-degree">运营者</div>
+                                <div class="timeline-description">
+                                    <ul>
+                                        <li>运营生活方式自媒体账号</li>
+                                        <li>创作旅行内容和生活感悟</li>
+                                        <li>从人文角度撰写内容</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-header">
+                                <div class="timeline-title">AI技术学习与应用</div>
+                                <div class="timeline-date">相关时期</div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-degree">学习者/创作者</div>
+                                <div class="timeline-description">
+                                    <ul>
+                                        <li>AI视频创作与开发</li>
+                                        <li>AI IDE工作台应用开发</li>
+                                        <li>探索技术与人文的交叉点</li>
+                                        <li>专注于AI在创作领域的多元化应用</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我 -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">联系我</h2>
+            <div class="contact-info">
+                <p class="fade-in">寻找有温度、有能量的伙伴，一起探索AI与人文的无限可能。</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">📧</a>
+                    <a href="#" class="social-link">📱</a>
+                    <a href="#" class="social-link">📸</a>
+                    <a href="#" class="social-link">🔗</a>
+                    <!-- 微信二维码按钮 -->
+                    <button class="social-link" id="wechatBtn">💬</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 微信二维码模态框 -->
+    <div class="modal" id="wechatModal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h3>添加我的微信</h3>
+            <div class="qr-container">
+                <!-- 替换为您的微信二维码图片路径 -->
+                <img src="二维码.jpg" alt="微信二维码" id="wechatQrCode">
+            </div>
+            <p>扫描二维码添加我的微信，一起交流AI与人文</p>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 云树 Yuna. 用人文温度拥抱AI未来.</p>
+            <!-- 微信二维码按钮 -->
+            <button class="btn" id="wechatFooterBtn" style="margin-top: 1rem; display: block; margin-left: auto; margin-right: auto;">
+                添加微信
+            </button>
+        </div>
+    </footer>
+
+    <!-- 粒子效果脚本 -->
+    <script>
+        // 简化的粒子效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 移除加载动画
+            const loading = document.getElementById('loading');
+            setTimeout(() => {
+                loading.style.opacity = '0';
+                setTimeout(() => {
+                    loading.style.display = 'none';
+                }, 500);
+            }, 1000);
+
+            // 粒子效果（优化性能）
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            canvas.style.position = 'fixed';
+            canvas.style.top = '0';
+            canvas.style.left = '0';
+            canvas.style.zIndex = '0';
+            canvas.style.pointerEvents = 'none';
+            document.body.appendChild(canvas);
+
+            // 减少粒子数量，优化性能
+            const particles = [];
+            const particleCount = 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 1,
+                    vy: (Math.random() - 0.5) * 1,
+                    size: Math.random() * 1.5 + 0.5,
+                    opacity: Math.random() * 0.4 + 0.1
+                });
+            }
+
+            // 优化动画循环
+            let animationFrameId;
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                for (let i = 0; i < particles.length; i++) {
+                    const particle = particles[i];
+                    particle.x += particle.vx;
+                    particle.y += particle.vy;
+                    
+                    if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
+                    if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
+                    
+                    ctx.beginPath();
+                    ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(0, 255, 255, ${particle.opacity})`;
+                    ctx.fill();
+                }
+                
+                animationFrameId = requestAnimationFrame(animate);
+            }
+            
+            animate();
+
+            // 响应式调整（优化：防抖处理）
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                }, 100);
+            });
+
+            // 页面不可见时暂停动画
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    cancelAnimationFrame(animationFrameId);
+                } else {
+                    animate();
+                }
+            });
+
+            // 滚动动画
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+
+            // 博客功能
+            const blogData = {
+                1: {
+                    title: 'AI时代的人文温度',
+                    date: '2026-03-01',
+                    category: 'AI思考',
+                    content: `
+                        <p>在AI快速发展的今天，我们如何保持人文关怀，让技术真正服务于人类的美好？</p>
+                        
+                        <p>当ChatGPT、Midjourney等AI工具逐渐融入我们的生活，当自动化取代了越来越多的工作岗位，当算法开始影响我们的决策和价值观，我们不得不思考：技术的发展是否真的让我们的生活变得更美好？</p>
+                        
+                        <h3>技术的本质是服务人类</h3>
+                        <p>技术本身是中性的，它的价值取决于我们如何使用它。AI的出现，应该是为了增强人类的能力，而不是取代人类；应该是为了改善人类的生活，而不是加剧不平等；应该是为了促进人类的发展，而不是限制人类的自由。</p>
+                        
+                        <h3>人文关怀是技术的灵魂</h3>
+                        <p>一个好的AI产品，不仅要有强大的技术能力，更要有温度、有情感、有人文关怀。它应该理解人类的需求，尊重人类的价值观，保护人类的隐私，促进人类的福祉。</p>
+                        
+                        <p>在搭建哲学数字交互系统的过程中，我始终坚持一个原则：技术是手段，人文是目的。我希望通过AI技术与交互设计，帮助人们更好地提出问题、进行思辨、记录精神成长，让技术真正服务于人类的精神需求。</p>
+                        
+                        <h3>未来的路</h3>
+                        <p>AI时代已经到来，我们无法阻挡技术的发展，但我们可以选择技术的方向。让我们带着人文温度，拥抱AI未来，共同创造一个更加美好的世界。</p>
+                    `
+                },
+                2: {
+                    title: '从海南到杭州：我的AI探索之旅',
+                    date: '2023-10-01',
+                    category: '个人成长',
+                    content: `
+                        <p>从追逐海浪的自由灵魂，到专注于AI产品创新，这段旅程让我对技术与生活有了新的理解。</p>
+                        
+                        <p>三年前，我还在海南过着每天潜水冲浪的生活，享受着大自然的恩赐和自由的快乐。那时的我，从未想过自己会与AI技术产生如此深的联系。</p>
+                        
+                        <h3>转变的契机</h3>
+                        <p>一次偶然的机会，我系统接触到了AI技术，被它在表达与建模上的潜力所震撼。我开始思考：如果将AI与我的人文思考和生活记录结合起来，会产生怎样的火花？</p>
+                        
+                        <p>这个想法让我兴奋不已，于是我决定离开海南，来到杭州这个互联网和AI技术的聚集地，开始我的AI探索之旅。</p>
+                        
+                        <h3>探索的过程</h3>
+                        <p>在杭州的日子里，我从零开始学习AI技术，参加各种技术沙龙和讲座，结识了许多志同道合的朋友。我开始尝试将AI技术应用到人文叙事中，搭建出一个原型的哲学数字交互系统，让抽象思考可以被真实「对话」和体验。</p>
+                        
+                        <p>这个过程充满了挑战，但也充满了乐趣。每当看到用户在这个系统里触发新的问题与灵感，我都会感到无比的满足和幸福。</p>
+                        
+                        <h3>新的理解</h3>
+                        <p>这段旅程让我对技术与生活有了新的理解：技术不是冰冷的代码，而是连接人与生活的桥梁；创新不是为了炫耀技术，而是为了让生活变得更加美好。</p>
+                        
+                        <p>未来，我将继续探索AI技术与人文关怀的结合点，开发出更多有温度、有价值的AI产品。</p>
+                    `
+                },
+                3: {
+                    title: '哲学思维在AI产品设计中的应用',
+                    date: '2025-06-30',
+                    category: '产品设计',
+                    content: `
+                        <p>深度哲学思考如何帮助我们突破思维局限，设计出更有温度、更有价值的AI产品？</p>
+                        
+                        <p>在AI产品设计领域，我们经常会遇到各种问题：如何平衡技术与人文？如何处理隐私与便利？如何设计出真正符合用户需求的产品？</p>
+                        
+                        <h3>哲学思维的价值</h3>
+                        <p>哲学思维可以帮助我们跳出具体的技术细节，从更宏观、更本质的角度思考问题。它可以帮助我们理解人性，把握用户的深层需求；可以帮助我们思考技术的本质和意义，避免陷入技术崇拜的误区；可以帮助我们建立正确的价值观，指导产品设计的方向。</p>
+                        
+                        <h3>具体应用</h3>
+                        <p>在设计哲学数字交互系统的过程中，我运用了许多哲学思考：</p>
+                        
+                        <p>1. <strong>存在主义</strong>：强调个体的存在和体验，注重用户的提问与困惑，让每个人都能在系统中展开属于自己的思辨路径。</p>
+                        
+                        <p>2. <strong>现象学</strong>：关注用户的直观体验，从用户的角度出发设计产品，让产品更加易用、友好。</p>
+                        
+                        <p>3. <strong>伦理学</strong>：思考技术的道德 implications，保护用户的隐私和数据安全，确保产品的使用符合伦理规范。</p>
+                        
+                        <h3>结语</h3>
+                        <p>哲学思维不是可有可无的奢侈品，而是AI产品设计的重要工具。它可以帮助我们设计出更有深度、更有温度、更有价值的AI产品，让技术真正服务于人类的美好。</p>
+                    `
+                }
+            };
+
+            // 博客交互功能
+            const blogList = document.getElementById('blogList');
+            const blogDetail = document.getElementById('blogDetail');
+            const blogBackBtn = document.getElementById('blogBackBtn');
+            const blogDetailTitle = document.getElementById('blogDetailTitle');
+            const blogDetailDate = document.getElementById('blogDetailDate');
+            const blogDetailCategory = document.getElementById('blogDetailCategory');
+            const blogDetailContent = document.getElementById('blogDetailContent');
+
+            // 点击博客列表项，显示详情
+            blogList.addEventListener('click', (e) => {
+                const blogItem = e.target.closest('.blog-item');
+                if (blogItem) {
+                    const blogId = parseInt(blogItem.dataset.id);
+                    const blog = blogData[blogId];
+                    
+                    if (blog) {
+                        // 填充详情内容
+                        blogDetailTitle.textContent = blog.title;
+                        blogDetailDate.textContent = blog.date;
+                        blogDetailCategory.textContent = blog.category;
+                        blogDetailContent.innerHTML = blog.content;
+                        
+                        // 切换显示
+                        blogList.style.display = 'none';
+                        blogDetail.style.display = 'block';
+                    }
+                }
+            });
+
+            // 返回博客列表
+            blogBackBtn.addEventListener('click', () => {
+                blogDetail.style.display = 'none';
+                blogList.style.display = 'flex';
+            });
+
+            // 移动端导航功能
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+
+            // 汉堡菜单点击事件
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // 点击导航链接后关闭菜单
+            navLinks.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+
+            // 滚动进度条功能
+            const scrollProgress = document.getElementById('scrollProgress');
+
+            window.addEventListener('scroll', () => {
+                // 计算滚动进度
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                
+                // 更新进度条宽度
+                scrollProgress.style.width = scrollPercent + '%';
+            });
+
+            // 微信二维码模态框功能
+            const wechatBtn = document.getElementById('wechatBtn');
+            const wechatFooterBtn = document.getElementById('wechatFooterBtn');
+            const wechatModal = document.getElementById('wechatModal');
+            const closeModal = document.getElementById('closeModal');
+
+            // 打开模态框
+            function openWechatModal() {
+                wechatModal.style.display = 'block';
+            }
+
+            wechatBtn.addEventListener('click', openWechatModal);
+            wechatFooterBtn.addEventListener('click', openWechatModal);
+
+            // 关闭模态框
+            closeModal.addEventListener('click', () => {
+                wechatModal.style.display = 'none';
+            });
+
+            // 点击模态框外部关闭
+            window.addEventListener('click', (e) => {
+                if (e.target === wechatModal) {
+                    wechatModal.style.display = 'none';
+                }
+            });
+
+            // 键盘ESC键关闭模态框
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && wechatModal.style.display === 'block') {
+                    wechatModal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
